@@ -20,7 +20,24 @@ public class LivingRoomUsage {
 
             double randomHours = randomNum.nextDouble(max - min + 1) + min;
 
-        result += randomHours;
+            result += randomHours;
+        }
+
+        return result;
+    }
+
+    public double calculateDailyLampEnergy() {
+        double result = 0;
+
+        for (int i = 0; i < 31; i++) {
+            Random randomNum = new Random();
+
+            int max = 7;
+            int min = 1;
+
+            double randomHours = randomNum.nextDouble(max - min + 1) + min;
+
+            result += randomHours;
         }
 
         return result;
@@ -31,11 +48,30 @@ public class LivingRoomUsage {
     double secondTVEnergy = Math.round(tvEnergy * 100);
     double finalTVEnergy = secondTVEnergy / 100;
 
+    // This is the calculation for daily usage of a lamp in kWh
+    double lampEnergy = ((10 * calculateDailyLampEnergy()) / 1000);
+    double secondLampEnergy = Math.round(lampEnergy * 100);
+    double finalLampEnergy = secondLampEnergy / 100;
+
+    double totalEnergy = finalTVEnergy + finalLampEnergy;
+
     public double getTelevisionEnergy() {
         return finalTVEnergy;
     }
 
-    public void setTelevisionEnergy(float tvEnergy) {
+    public double getLampEnergy() {
+        return finalLampEnergy;
+    }
+
+    public double getTotalLivingEnergy() {
+        return totalEnergy;
+    }
+
+    public void setTelevisionEnergy(double tvEnergy) {
         this.tvEnergy = tvEnergy;
+    }
+
+    public void setLampEnergy(double lampEnergy) {
+        this.lampEnergy = lampEnergy;
     }
 }

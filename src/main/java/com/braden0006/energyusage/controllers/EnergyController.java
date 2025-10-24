@@ -11,6 +11,9 @@ class EnergyController {
 
     @GetMapping("/energy")
     public String displayEnergy() {
-        return livingRoomEnergy.getTelevisionEnergy() + " kWh";
+
+        return "TV energy: " + livingRoomEnergy.getTelevisionEnergy() + "\n" +
+                "Lamp energy: " + livingRoomEnergy.getLampEnergy() + "\n" +
+                "Total energy: " + livingRoomEnergy.getTotalLivingEnergy();
     }
 }
