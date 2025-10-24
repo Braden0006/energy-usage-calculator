@@ -2,16 +2,40 @@ package com.braden0006.energyusage.calculations;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
+
 @Component
 public class LivingRoomUsage {
-    // This is the calculation for daily usage of a television in kWh
-    private double televisionEnergy = ((80 * 9.5) / 1000) * 30;
 
-    public double getTelevisionEnergy() {
-        return televisionEnergy;
+    // This class calculates a random double integer value for a TV that is being used between 1-11 hours
+    // for every day of the month
+    public double calculateDailyTVEnergy() {
+        double result = 0;
+
+        for (int i = 0; i < 31; i++) {
+            Random randomNum = new Random();
+
+            int max = 11;
+            int min = 1;
+
+            double randomHours = randomNum.nextDouble(max - min + 1) + min;
+
+        result += randomHours;
+        }
+
+        return result;
     }
 
-    public void setTelevisionEnergy(float televisionEnergy) {
-        this.televisionEnergy = televisionEnergy;
+    // This is the calculation for daily usage of a television in kWh
+    double tvEnergy = ((80 * calculateDailyTVEnergy()) / 1000);
+    double secondTVEnergy = Math.round(tvEnergy * 100);
+    double finalTVEnergy = secondTVEnergy / 100;
+
+    public double getTelevisionEnergy() {
+        return finalTVEnergy;
+    }
+
+    public void setTelevisionEnergy(float tvEnergy) {
+        this.tvEnergy = tvEnergy;
     }
 }
