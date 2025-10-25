@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @SpringBootApplication
 public class EnergyUsageApplication {
 
@@ -15,7 +15,7 @@ public class EnergyUsageApplication {
     }
 
     @GetMapping("/")
-    public String bello() {
-        return "I AM GLAD IT'S FINALLY WORKINGGGGGGGGGGGGGGGGG";
+    public String homePage() {
+        return "index";
     }
 }
