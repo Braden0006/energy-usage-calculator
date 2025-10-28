@@ -6,7 +6,10 @@
     <title>User Homepage</title>
 </head>
 <body>
-<h1>Hello, {user}!</h1>
-<p th:text="'Your total energy usage is: ' + ${livingroom.getTotalLivingEnergy()}" class="total-usage"></p>
+    <h1>Hello, {user}!</h1>
+    <h2>Living room usage</h2>
+    <p th:text="'Your total energy usage is: ' + ${livingroom.getTotalLivingEnergy()}" class="energy-usage"></p>
+    <p th:text="'Television energy usage: ' + ${livingroom.getTelevisionEnergy()}" class="energy-usage"></p>
+    <p th:text="'Lamp energy usage: ' + ${livingroom.getLampEnergy()}" class="energy-usage"></p>
 </body>
 </html>

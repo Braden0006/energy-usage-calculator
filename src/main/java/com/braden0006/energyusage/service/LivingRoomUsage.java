@@ -1,4 +1,4 @@
-package com.braden0006.energyusage.calculations;
+package com.braden0006.energyusage.service;
 
 import org.springframework.stereotype.Component;
 
